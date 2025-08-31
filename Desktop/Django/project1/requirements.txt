@@ -1,0 +1,7 @@
+Django
+django-cors-headers
+djangorestframework
+django-environ
+psycopg2
+django-filter
+redis

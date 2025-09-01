@@ -95,9 +95,12 @@ class OrderViewSet(viewsets.ModelViewSet):
         return OrderSerializer
 
     def get_queryset(self):
-        return Order.objects.select_related('instrument').prefetch_related(
-            'buy_trade', 'sell_trade'
-        )
+        qs = Order.objects.select_related('instrument')
+        if self.action not in ['history']:
+            qs = qs.prefetch_related(
+                'buy_trade', 'sell_trade'
+            )
+        return qs
 
     @action(detail=False, methods=['get'])
     def history(self, request):

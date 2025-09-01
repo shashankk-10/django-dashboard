@@ -1,4 +1,6 @@
 Django
+django-extensions
+django-debug-toolbar
 django-cors-headers
 djangorestframework
 django-environ
